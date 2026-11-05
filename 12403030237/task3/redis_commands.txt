@@ -1,0 +1,44 @@
+1.
+(1)
+HSET exam:12403030237:student studentId "12403030237" name "张三" className "大数据二班" courseId "COURSE-12403030237-01" status "learning"
+(2)
+HSET exam:12403030237:student status "completed"
+(3)
+HMGET exam:12403030237:student name status
+(4)
+HGETALL exam:12403030237:student
+
+2.
+（1）
+SADD exam:12403030237:chapters CH01
+SCARD exam:12403030237:chapters
+（2）
+SADD exam:12403030237:chapters CH02
+SCARD exam:12403030237:chapters
+（3）
+SADD exam:12403030237:chapters CH02
+SCARD exam:12403030237:chapters
+（4）
+SADD exam:12403030237:chapters CH03
+SCARD exam:12403030237:chapters
+
+3.
+（1）
+ZADD exam:12403030237:ranking 72 "Student:12403030237" 85 "demo:01" 90 "demo:02" 60 "demo:03" 80 "demo:04"
+ZREVRANGE exam:12403030237:ranking 0 2 WITHSCORES
+（2）
+ZINCRBY exam:12403030237:ranking 20 "Student:12403030237"
+（3）
+ZREVRANGE exam:12403030237:ranking 0 2 WITHSCORES
+（4）
+ZSCORE exam:12403030237:ranking "Student:12403030237"
+ZREVRANK exam:12403030237:ranking "Student:12403030237"
+
+4.
+（1）
+SETEX exam:12403030237:session 5 "my_custom_session_001"
+GET exam:12403030237:session
+TTL exam:12403030237:session
+（3）
+EXISTS exam:12403030237:session
+TTL exam:12403030237:session
